@@ -11,4 +11,5 @@ class Interaction extends Tetris{
    
   color getColor() { return shape.c; }
    
+   
 }

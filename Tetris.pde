@@ -11,9 +11,12 @@ Grid board, preview;
 Interaction curr;
 Shape next;
 Shape[] shapes = new Shape[7];
+int currTime = 0;
+int timer = 20;
 int score = 0;
 int lines = 0;
 int level = 1;
+boolean game_over = false;
 
 void setup() {
   size(500, 690, P2D);
@@ -32,7 +35,17 @@ void setup() {
 
 void draw() {
   background(0);
+  if (game_over) {
+    text("GAME OVER\nSCORE: " + score, width/2 - 70, height/2 - 50);
+    return;
+  }
   
+  currTime++;
+  if (currTime >= timer && board.animateCount == -1)
+  preview.draw();
+  if (curr != null)
+    curr.draw();
+  next.preview();
   fill(255);
   text("LEVEL\n" + level, width - 150, 120);
   text("LINES\n" + lines, width - 150, 200);

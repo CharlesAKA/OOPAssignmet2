@@ -31,12 +31,10 @@ class Interaction extends Tetris{
    
   void update() {
     final_row = getFinalRow();
-    // reset the timer
     if (y == final_row)
       currTime = -20;
   }
    
-  // used when player presses down.
   void down() {
     if (y >= final_row) {
       board.endTurn();
@@ -46,7 +44,6 @@ class Interaction extends Tetris{
     }
   }
    
-  // used when automatically moving the block down.
   void stepDown() {
     if (y >= final_row) {
       board.endTurn();
@@ -56,7 +53,6 @@ class Interaction extends Tetris{
     }
   }
    
-  // move block all the way to the bottom
   void hardDown() {
     score += (board.rows - y);
     y = final_row;

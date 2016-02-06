@@ -1,3 +1,4 @@
+import controlP5.*;
 
 final int CYAN = color(0,255,255);
 final int ORANGE = color(255,165,0);
@@ -7,6 +8,7 @@ final int BLUE = color(0,0,255);
 final int RED = color(255,0,0);
 final int GREEN = color(0,255,0);
 
+ControlP5 controlP5;
 Grid board, preview;
 Interaction curr;
 Shape next;
@@ -22,6 +24,8 @@ final int speed_decrease = 2;
 void setup() {
   size(500, 690, P2D);
   textSize(25);
+  controlP5 = new ControlP5(this);
+  controlP5.addButton("play", 1, width/2 - 35, height/2, 70, 20).setLabel("play again");
   shapes[0] = new Shape(4, new int[] {8,9,10,11}, CYAN);  // I
   shapes[1] = new Shape(3, new int[] {0,3,4,5}, BLUE);  // J
   shapes[2] = new Shape(3, new int[] {2,3,4,5}, ORANGE);  // L
@@ -59,4 +63,20 @@ void loadNext() {
   curr = new Interaction(next);
   next = shapes[(int)random(7)];
   currTime = 0;
+}
+
+void keyPressed() {
+  if (curr == null || game_over)
+    return;
+  switch(keyCode) {
+    case LEFT : curr.left(); break;
+    case RIGHT : curr.right(); break;
+    case DOWN : curr.down(); break;
+    case ' ' : curr.hardDown(); break;
+  }
+}
+
+void play(int value) {
+  board.clear();
+  loadNext();
 }

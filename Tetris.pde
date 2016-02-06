@@ -7,6 +7,7 @@ final int BLUE = color(0,0,255);
 final int RED = color(255,0,0);
 final int GREEN = color(0,255,0);
 
+Grid board, preview;
 Interaction curr;
 Shape next;
 Shape[] shapes = new Shape[7];
@@ -24,6 +25,7 @@ void setup() {
   shapes[4] = new Shape(4, new int[] {5,6,8,9}, GREEN);  // S
   shapes[5] = new Shape(3, new int[] {1,3,4,5,}, PURPLE);  // T
   shapes[6] = new Shape(4, new int[] {4,5,9,10}, RED);  // Z
+  preview = new Grid(355, 20, 116, 58, 2, 4);
   next = shapes[(int)random(7)];
 
 }

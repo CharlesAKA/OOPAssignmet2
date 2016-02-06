@@ -1,4 +1,4 @@
-class Shape extends Tetris{
+class Shape extends Tetris {
   boolean[][] matrix;
   int c;
    
@@ -18,5 +18,16 @@ class Shape extends Tetris{
       for (int y = 0; y < matrix.length; ++y)
         matrix[x][y] = other.matrix[x][y];
     this.c = other.c;
+  }
+   
+  void preview() {
+    int startJ = 1;  // the preview grid is only 4X2, so we need to find where the block start
+    for (int i = 0; i < matrix.length; ++i)
+      if (matrix[i][0])
+        startJ = 0;
+    for (int i = 0; i < matrix.length; ++i)
+      for (int j = startJ; j < matrix.length; ++j)
+        if (matrix[i][j])
+          preview.fillSquare(i, j - startJ, c);
   }
 }

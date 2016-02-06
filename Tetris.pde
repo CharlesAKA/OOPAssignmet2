@@ -13,6 +13,7 @@ Shape next;
 Shape[] shapes = new Shape[7];
 int currTime = 0;
 int timer = 20;
+
 int score = 0;
 int lines = 0;
 int level = 1;
@@ -42,7 +43,9 @@ void draw() {
   
   currTime++;
   if (currTime >= timer && board.animateCount == -1)
+    curr.stepDown();
   preview.draw();
+  board.draw();
   if (curr != null)
     curr.draw();
   next.preview();

@@ -13,11 +13,11 @@ Shape next;
 Shape[] shapes = new Shape[7];
 int currTime = 0;
 int timer = 20;
-
 int score = 0;
 int lines = 0;
 int level = 1;
 boolean game_over = false;
+final int speed_decrease = 2;
 
 void setup() {
   size(500, 690, P2D);
@@ -53,4 +53,10 @@ void draw() {
   text("LEVEL\n" + level, width - 150, 120);
   text("LINES\n" + lines, width - 150, 200);
   text("SCORE\n" + score, width - 150, 280);
+}
+
+void loadNext() {
+  curr = new Interaction(next);
+  next = shapes[(int)random(7)];
+  currTime = 0;
 }

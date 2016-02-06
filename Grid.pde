@@ -46,6 +46,7 @@ class Grid extends Tetris{
         // stop animation, clear the lines, and load the next Tetromino
         animateCount = -1;
         eraseCleared();
+        loadNext();
       }
     }
   }
@@ -75,7 +76,8 @@ class Grid extends Tetris{
     if (checkLines()) {
       curr = null;
       animateCount = 0;
-    } 
+    } else
+      loadNext();
   }
    
   boolean checkLines() {
@@ -93,6 +95,7 @@ class Grid extends Tetris{
        
     if (lines/10 < (lines + clearedRows.size())/10) {
       level++;
+      timer -= speed_decrease;
     }
     lines += clearedRows.size();
     score += (1 << clearedRows.size() - 1)*100;

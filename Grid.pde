@@ -1,11 +1,11 @@
-class Grid extends Tetris{
+class Grid {
   int x, y;
   int myWidth, myHeight;
   int rows, cols;
   int[][] colors;
-  ArrayList<Integer> clearedRows = new ArrayList<Integer>();
   int animateCount = -1;
-   
+  ArrayList<Integer> clearedRows = new ArrayList<Integer>();
+
   Grid(int x, int y, int w, int h, int rows, int cols) {
     this.x = x;
     this.y = y;
@@ -32,7 +32,9 @@ class Grid extends Tetris{
     for (int i = 0; i < cols; ++i)
       for (int j = 0; j < rows; ++j)
         fillSquare(i, j, colors[i][j]);
+    // line clear animation
     if (animateCount >= 0) {
+      //calculate a background that smoothly oscillates between black and white
       int c = (animateCount < 255) ? animateCount : 255 - animateCount%255;
       if (clearedRows.size() == 4)
         c = color(0, c, c); // cyan animation for a Tetris
@@ -41,6 +43,7 @@ class Grid extends Tetris{
           fillSquare(i, row, color(c, 200));
       animateCount += 10;
       if (animateCount > 2*255) {
+        // stop animation, clear the lines, and load the next Tetromino
         animateCount = -1;
         eraseCleared();
         loadNext();
@@ -92,7 +95,7 @@ class Grid extends Tetris{
        
     if (lines/10 < (lines + clearedRows.size())/10) {
       level++;
-      timer -= speed_decrease;
+      timer -= SPEED_DECREASE;
     }
     lines += clearedRows.size();
     score += (1 << clearedRows.size() - 1)*100;
@@ -112,7 +115,7 @@ class Grid extends Tetris{
   }
    
   boolean isOccupied(int x, int y) {
-    if (y < 0 && x < cols && x >= 0) 
+    if (y < 0 && x < cols && x >= 0) // allow movement/flipping to spaces above the board
       return false;
     return (x >= cols || x < 0 || y >= rows || colors[x][y] != 0);
   }

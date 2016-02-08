@@ -1,4 +1,4 @@
-class Shape extends Tetris {
+class Shape {
   boolean[][] matrix;
   int c;
    
@@ -21,7 +21,7 @@ class Shape extends Tetris {
   }
    
   void preview() {
-    int startJ = 1;  
+    int startJ = 1;  // the preview grid is only 4X2, so we need to find where the block start
     for (int i = 0; i < matrix.length; ++i)
       if (matrix[i][0])
         startJ = 0;

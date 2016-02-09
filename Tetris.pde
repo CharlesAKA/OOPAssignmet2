@@ -62,7 +62,7 @@ void draw() {
   text("LINES\n" + lines, width - 150, 200);
   text("SCORE\n" + score, width - 150, 280);
   text("INSTRUCTIONS:\n\nW = roatate\nA = left\nD = right\nS = down\nSpace = drop\nZ = Pause\nC = Play", width - 150, 400);
-}
+}//displays functional game, information on score and level and instructions on how to play
  
 void loadNext() {
   curr = new Interaction(next);

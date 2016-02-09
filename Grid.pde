@@ -99,7 +99,7 @@ class Grid {
     return true;
   }
    
-  void eraseCleared() {
+  void eraseCleared() {//removes the lines that were made
     for (int row : clearedRows) {
       for (int j = row - 1; j > 0; --j) {
         int[] rowCopy = new int[cols];
@@ -111,8 +111,8 @@ class Grid {
     }
   }
    
-  boolean isOccupied(int x, int y) {
-    if (y < 0 && x < cols && x >= 0) // allow movement/flipping to spaces above the board
+  boolean isOccupied(int x, int y) {//enables the shapes to move above the board
+    if (y < 0 && x < cols && x >= 0) 
       return false;
     return (x >= cols || x < 0 || y >= rows || colors[x][y] != 0);
   }

@@ -1,4 +1,4 @@
-class Interaction {
+class Interaction{
   Shape shape;
   int x, y;
   int final_row;

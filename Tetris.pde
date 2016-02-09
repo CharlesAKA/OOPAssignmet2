@@ -1,4 +1,4 @@
-import controlP5.*;
+import controlP5.*;//allows you to create a button
  int Azzur = color(0,255,255);
  int Blue = color(0,0,255);
  int Orange = color(255,165,0);
@@ -48,7 +48,7 @@ void draw() {
     text("GAME OVER!!\bSCORE: " + score, width/2 - 200, height/2 + 20);
     cp5.draw();
     return;
-  }//display the game over screen and option to play again
+  }//display the game over screen, your score and option to play again
   currTime++;
   if (currTime >= timer && board.animateCount == -1)
     curr.stepDown();

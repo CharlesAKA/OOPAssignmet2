@@ -20,8 +20,8 @@ class Shape {
     this.c = other.c;
   }
    
-  void preview() {
-    int startJ = 1;  // the preview grid is only 4X2, so we need to find where the block start
+  void preview() {//calculating where the block starts
+    int startJ = 1;  
     for (int i = 0; i < matrix.length; ++i)
       if (matrix[i][0])
         startJ = 0;

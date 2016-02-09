@@ -39,8 +39,7 @@ class Interaction {
       currTime = -20;
   }
    
-  // used when player presses down.
-  void down() {
+  void down() {//to go done one step faster
     if (y >= final_row) {
       // if already at the bottom, down shortcuts to lock current and load next block
       board.endTurn();

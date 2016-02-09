@@ -41,12 +41,11 @@ class Interaction {
    
   void down() {//to go done one step faster
     if (y >= final_row) {
-      // if already at the bottom, down shortcuts to lock current and load next block
       board.endTurn();
     } else {
       stepDown();
-      score += 1;  // get a point for manual down
-    }
+      score += 1;  
+    }//if it has reached the bottom then should load next shape
   }
    
   // used when automatically moving the block down.

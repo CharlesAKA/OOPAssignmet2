@@ -95,7 +95,7 @@ class Grid {
        
     if (lines/10 < (lines + clearedRows.size())/10) {
       level++;
-      timer -= SPEED_DECREASE;
+      timer -= Slow;
     }
     lines += clearedRows.size();
     score += (1 << clearedRows.size() - 1)*100;

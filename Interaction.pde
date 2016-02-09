@@ -8,7 +8,7 @@ class Interaction {
     x = 3;
     y = -2;
     final_row = getFinalRow();
-    game_over = !Correct(this.shape.matrix, 3, -1);
+    gameOver = !Correct(this.shape.matrix, 3, -1);
   }
    
   color getColor() 

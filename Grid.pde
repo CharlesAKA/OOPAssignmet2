@@ -31,19 +31,16 @@ class Grid {
     rect(x, y, myWidth, myHeight);
     for (int i = 0; i < cols; ++i)
       for (int j = 0; j < rows; ++j)
-        fillSquare(i, j, colors[i][j]);
-    // line clear animation
-    if (animateCount >= 0) {
-      //calculate a background that smoothly oscillates between black and white
+        fillSquare(i, j, colors[i][j]);//clear line
+    if (animateCount >= 0) {//background
       int c = (animateCount < 255) ? animateCount : 255 - animateCount%255;
       if (clearedRows.size() == 4)
-        c = color(0, c, c); // cyan animation for a Tetris
+        c = color(0, c, c);
       for (int row : clearedRows)
         for (int i = 0; i < cols; ++i)
           fillSquare(i, row, color(c, 200));
       animateCount += 10;
-      if (animateCount > 2*255) {
-        // stop animation, clear the lines, and load the next Tetromino
+      if (animateCount > 2*255) {//loads next shape,stop load and clear line
         animateCount = -1;
         eraseCleared();
         loadNext();

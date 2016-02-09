@@ -63,7 +63,7 @@ class Interaction{
     board.endTurn();
   }
    
-  void rotate() {
+  void rotate() {//rotates the shapes clockwise
     boolean[][] ret = new boolean[shape.matrix.length][shape.matrix.length];
     for (int x = 0; x < ret.length; ++x)
         for (int y = 0; y < ret.length; ++y)

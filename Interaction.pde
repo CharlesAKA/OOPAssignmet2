@@ -16,7 +16,7 @@ class Interaction {
     return shape.c; 
   }
    
-  void left() 
+  void left() //to move left
   {
     if (Correct(shape.matrix, x - 1, y))
       x--;
@@ -25,7 +25,7 @@ class Interaction {
     update();
   }
    
-  void right() {
+  void right() {//to move right
     if (Correct(shape.matrix, x + 1, y))
       x++;
     else if (Correct(shape.matrix, x + 2, y))
@@ -33,9 +33,8 @@ class Interaction {
     update();
   }
    
-  void update() {
+  void update() {//reset time of at the bottom
     final_row = getFinalRow();
-    // reset the timer if player is at the bottom, for wiggle room before it locks
     if (y == final_row)
       currTime = -20;
   }

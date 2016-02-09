@@ -48,8 +48,7 @@ class Interaction {
     }//if it has reached the bottom then should load next shape
   }
    
-  // used when automatically moving the block down.
-  void stepDown() {
+  void stepDown() {//drops the block all the way to the bottom
     if (y >= final_row) {
       board.endTurn();
     } else {

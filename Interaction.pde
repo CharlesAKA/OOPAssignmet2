@@ -39,7 +39,7 @@ class Interaction {
       currTime = -20;
   }
    
-  void down() {//to go done one step faster
+  void down() {
     if (y >= final_row) {
       board.endTurn();
     } else {
@@ -48,7 +48,7 @@ class Interaction {
     }//if it has reached the bottom then should load next shape
   }
    
-  void stepDown() {//drops the block all the way to the bottom
+  void stepDown() {//to make the shape go down one step faster
     if (y >= final_row) {
       board.endTurn();
     } else {
@@ -57,8 +57,7 @@ class Interaction {
     }
   }
    
-  // move block all the way to the bottom
-  void hardDown() {
+  void hardDown() {//drops the shape all the way to the bottom
     score += (board.rows - y);
     y = final_row;
     board.endTurn();
